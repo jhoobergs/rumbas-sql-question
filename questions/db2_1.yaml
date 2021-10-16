@@ -8,10 +8,5 @@ statement:
     en: |-
       Return the ages and salaries of all salesmen.
   placeholders: {}
-answer:
-  content:
-    nl: |-
-      "SELECT leeftijd, salaris FROM Verkoper;"
-    en: |-
-      "SELECT age, salary FROM Salesman;"
-  placeholders: {}
+answer: |-
+  "SELECT {age}, {salary} FROM {Salesman};"

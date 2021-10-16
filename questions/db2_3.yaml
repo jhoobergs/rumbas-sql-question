@@ -8,10 +8,5 @@ statement:
     en: |-
       Return the names of all salesman younger than 30.
   placeholders: {}
-answer:
-  content:
-    nl: |-
-      "SELECT naam from Verkoper where leeftijd < 30;"
-    en: |-
-      "SELECT name from Salesman where age < 30;"
-  placeholders: {}
+answer: |-
+  "SELECT {name} from {Salesman} where {age} < 30;"

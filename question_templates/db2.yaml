@@ -27,7 +27,6 @@ parts:
     steps: []
 variables:
   sql_editor: &editor sqlite_editor(setup, correct)
-  correct: template:answer
   setup:
     content: |-
       '
@@ -76,7 +75,7 @@ variables:
       INSERT INTO "{Order}" VALUES("Maasbrachtse Houthandel", "Jansen", 700, 150);
       INSERT INTO "{Order}" VALUES("Andersen Constructie", "Jansen", 800, 100);
       '
-    placeholders:
+    placeholders: &types
       Salesman:
         content:
           nl: Verkoper
@@ -122,6 +121,9 @@ variables:
           nl: aantal
           en: amount
         placeholders: {}
+  correct:
+    content: template:answer
+    placeholders: *types
 variables_test:
   condition: ""
   max_runs: 100

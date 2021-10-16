@@ -8,10 +8,5 @@ statement:
     en: |-
       Return the ages and salaries of all salesmen without potential duplicate records.
   placeholders: {}
-answer:
-  content:
-    nl: |-
-      "SELECT DISTINCT leeftijd, salaris FROM Verkoper;"
-    en: |-
-      "SELECT DISTINCT age, salary FROM Salesman;"
-  placeholders: {}
+answer: |-
+  "SELECT DISTINCT {age}, {salary} FROM {Salesman};"
