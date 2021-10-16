@@ -1,0 +1,172 @@
+---
+type: normal
+statement:
+  nl: "Schrijf SQL-queries voor de volgende opgaves"
+  en: "Write SQL-queries for the following exercises"
+advice: ""
+parts:
+  - type: extension
+    marks: 1
+    prompt: |-
+      {question}
+      <p>{sql_editor}</p>
+      <p></p>
+    use_custom_name: false
+    custom_name: ""
+    steps_penalty: 0
+    enable_minimum_marks: true
+    minimum_marks: 0
+    show_correct_answer: true
+    show_feedback_icon: true
+    variable_replacement_strategy: original_first
+    adaptive_marking_penalty: 0
+    custom_marking_algorithm_notes: &notes
+      - name: mark
+        description: none
+        expression: "correctif(check_resultset(sql_editor))"
+      - name: interpreted_answer
+        description: none
+        expression: current_query(sql_editor)
+    extend_base_marking_algorithm: true
+    steps: []
+  - type: extension
+    marks: 1
+    prompt: |-
+      <p>{sql_editor2}</p>
+      <p></p>
+    use_custom_name: false
+    custom_name: ""
+    steps_penalty: 0
+    enable_minimum_marks: true
+    minimum_marks: 0
+    show_correct_answer: true
+    show_feedback_icon: true
+    variable_replacement_strategy: original_first
+    adaptive_marking_penalty: 0
+    custom_marking_algorithm_notes: *notes
+    extend_base_marking_algorithm: true
+    steps: []
+builtin_constants:
+  e: true
+  pi: true
+  i: true
+custom_constants: []
+variables:
+  sql_editor: &editor sqlite_editor(setup, correct)
+  sql_editor2: *editor
+  question:
+    nl: |-
+      "Geef de leeftijden en salarissen van alle verkopers."
+    en: |- 
+      "Return the ages and salaries of all salesmen."
+  setup:
+    content: |-
+      '
+      CREATE TABLE "{Salesman}" (
+      {name} VARCHAR(30),
+      {age} INTEGER,
+      {salary} INTEGER,
+      PRIMARY KEY ({name})
+      );
+      CREATE TABLE "{Customer}" (
+      {name} VARCHAR(40),
+      {place} VARCHAR(40),
+      {company_type} VARCHAR(1),
+      PRIMARY KEY ({name})
+      );
+      CREATE TABLE "{Order}" (
+      {Customer}_{name} VARCHAR(40),
+      {Salesman}_{name} VARCHAR(30),
+      id INTEGER,
+      {amount} INTEGER,
+      PRIMARY KEY ({Customer}_{name},{Salesman}_{name},id),
+      FOREIGN KEY ({Customer}_{name}) REFERENCES "{Customer}"({name}),
+      FOREIGN KEY ({Salesman}_{name}) REFERENCES "{Salesman}"({name})
+      );
+
+      INSERT INTO "{Salesman}" VALUES("Abels", 63, 120000);
+      INSERT INTO "{Salesman}" VALUES("Bakker", 38, 42000);
+      INSERT INTO "{Salesman}" VALUES("Jansen", 26, 36000);
+      INSERT INTO "{Salesman}" VALUES("Murphy", 42, 50000);
+      INSERT INTO "{Salesman}" VALUES("Zwiers", 59, 118000);
+      INSERT INTO "{Salesman}" VALUES("Kroese", 27, 34000);
+      INSERT INTO "{Salesman}" VALUES("Abels2", 63, 120000);
+      INSERT INTO "{Salesman}" VALUES("Abels3", 63, 121000);
+
+      INSERT INTO "{Customer}" VALUES("Andersen Constructie", "Leiderdam", "B");
+      INSERT INTO "{Customer}" VALUES("Maasbrachtse Houthandel", "Maasbracht", "F");
+      INSERT INTO "{Customer}" VALUES("Verenigde Bouwbedrijven", "Rotterdam", "B");
+      INSERT INTO "{Customer}" VALUES("ABC-Stadsontwikkeling", "Rotterdam", "B");
+
+      INSERT INTO "{Order}" VALUES("Andersen Constructie", "Zwiers", 100, 560);
+      INSERT INTO "{Order}" VALUES("Andersen Constructie", "Jansen", 200, 1800);
+      INSERT INTO "{Order}" VALUES("Maasbrachtse Houthandel", "Abels", 300, 480);
+      INSERT INTO "{Order}" VALUES("Verenigde Bouwbedrijven", "Abels", 400, 2500);
+      INSERT INTO "{Order}" VALUES("Andersen Constructie", "Murphy", 500, 6000);
+      INSERT INTO "{Order}" VALUES("ABC-Stadsontwikkeling", "Abels", 600, 700);
+      INSERT INTO "{Order}" VALUES("Maasbrachtse Houthandel", "Jansen", 700, 150);
+      INSERT INTO "{Order}" VALUES("Andersen Constructie", "Jansen", 800, 100);
+      '
+    "{Salesman}":
+      nl: Verkoper
+      en: Salesman
+    "{Customer}":
+      nl: Klant
+      en: Customer
+    "{Order}":
+      nl: Bestelling
+      en: Order
+    "{name}":
+      nl: naam
+      en: name
+    "{age}":
+      nl: leeftijd
+      en: age
+    "{salary}":
+      nl: salaris
+      en: salary
+    "{place}":
+      nl: plaats
+      en: place
+    "{company_type}":
+      nl: bedrijfstype
+      en: company_type
+    "{amount}":
+      nl: aantal
+      en: amount
+  correct:
+    nl: |-
+      "SELECT * FROM Verkoper;"
+    en: |-
+      "SELECT * FROM Salesman;"
+variables_test:
+  condition: ""
+  max_runs: 100
+functions: {}
+preamble:
+  js: ""
+  css: ""
+navigation:
+  can_regenerate: true
+  show_title_page: false
+  confirm_when_leaving: false
+extensions:
+  chemistry: false
+  download_text_file: false
+  eukleides: false
+  geogebra: false
+  graphs: false
+  jsx_graph: false
+  linear_algebra: false
+  linear_codes: false
+  optimisation: false
+  permutations: false
+  polynomials: false
+  quantities: false
+  random_person: false
+  stats: false
+  written_number: false
+  sqlite: true
+diagnostic_topic_names: []
+resources: []
+custom_part_types: []
