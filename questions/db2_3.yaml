@@ -1,0 +1,13 @@
+---
+type: template
+template: db2
+statement:
+  nl: |-
+    Geef de namen van alle verkopers jonger dan 30 jaar.
+  en: |-
+    Return the names of all salesman younger than 30.
+answer:
+  nl: |-
+    "SELECT naam from Verkoper where leeftijd < 30;"
+  en: |-
+    "SELECT name from Salesman where age < 30;"

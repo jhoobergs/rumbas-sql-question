@@ -1,0 +1,19 @@
+---
+type: normal
+locales:
+  - name: nl
+    numbas_locale: nl-NL
+  - name: en
+    numbas_locale: en-GB
+name:
+  nl: SQL Oefenset 2
+  en: SQL Exercise set 2
+question_groups:
+  - name:
+      nl: Q1
+      en: Q1
+    picking_strategy: all_ordered
+    questions:
+      - db2_1
+      - db2_2
+      - db2_3
