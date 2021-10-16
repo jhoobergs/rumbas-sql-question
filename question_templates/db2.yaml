@@ -1,22 +1,18 @@
 ---
 type: normal
-statement:
-  nl: "Schrijf SQL-queries voor de volgende opgaves"
-  en: "Write SQL-queries for the following exercises"
+statement: template:statement
 advice: ""
 parts:
   - type: extension
     marks: 1
     prompt: |-
-      {question}
-      <p>{sql_editor}</p>
-      <p></p>
+      {sql_editor}
     use_custom_name: false
     custom_name: ""
     steps_penalty: 0
     enable_minimum_marks: true
     minimum_marks: 0
-    show_correct_answer: true
+    show_correct_answer: false
     show_feedback_icon: true
     variable_replacement_strategy: original_first
     adaptive_marking_penalty: 0
@@ -29,36 +25,9 @@ parts:
         expression: current_query(sql_editor)
     extend_base_marking_algorithm: true
     steps: []
-  - type: extension
-    marks: 1
-    prompt: |-
-      <p>{sql_editor2}</p>
-      <p></p>
-    use_custom_name: false
-    custom_name: ""
-    steps_penalty: 0
-    enable_minimum_marks: true
-    minimum_marks: 0
-    show_correct_answer: true
-    show_feedback_icon: true
-    variable_replacement_strategy: original_first
-    adaptive_marking_penalty: 0
-    custom_marking_algorithm_notes: *notes
-    extend_base_marking_algorithm: true
-    steps: []
-builtin_constants:
-  e: true
-  pi: true
-  i: true
-custom_constants: []
 variables:
   sql_editor: &editor sqlite_editor(setup, correct)
-  sql_editor2: *editor
-  question:
-    nl: |-
-      "Geef de leeftijden en salarissen van alle verkopers."
-    en: |- 
-      "Return the ages and salaries of all salesmen."
+  correct: template:answer
   setup:
     content: |-
       '
@@ -134,11 +103,6 @@ variables:
     "{amount}":
       nl: aantal
       en: amount
-  correct:
-    nl: |-
-      "SELECT * FROM Verkoper;"
-    en: |-
-      "SELECT * FROM Salesman;"
 variables_test:
   condition: ""
   max_runs: 100
@@ -147,7 +111,7 @@ preamble:
   js: ""
   css: ""
 navigation:
-  can_regenerate: true
+  can_regenerate: false
   show_title_page: false
   confirm_when_leaving: false
 extensions:
@@ -170,3 +134,8 @@ extensions:
 diagnostic_topic_names: []
 resources: []
 custom_part_types: []
+builtin_constants:
+  e: true
+  pi: true
+  i: true
+custom_constants: []

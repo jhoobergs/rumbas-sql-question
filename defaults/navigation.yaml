@@ -1,5 +1,5 @@
 ---
-can_regenerate: true
+can_regenerate: false
 can_move_to_previous: true
 browsing_enabled: true
 show_steps: true
