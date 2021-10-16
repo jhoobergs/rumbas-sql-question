@@ -1,12 +1,7 @@
 ---
 type: template
 template: db2
-statement:
-  content:
-    nl: |-
-      Geef de leeftijden en salarissen van alle verkopers.
-    en: |-
-      Return the ages and salaries of all salesmen.
-  placeholders: {}
+statement_nl: Geef de leeftijden en salarissen van alle verkopers.
+statement_en: Return the ages and salaries of all salesmen.
 answer: |-
   "SELECT {age}, {salary} FROM {Salesman};"

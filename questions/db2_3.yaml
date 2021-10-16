@@ -1,12 +1,7 @@
 ---
 type: template
 template: db2
-statement:
-  content:
-    nl: |-
-      Geef de namen van alle verkopers jonger dan 30 jaar.
-    en: |-
-      Return the names of all salesman younger than 30.
-  placeholders: {}
+statement_nl: Geef de namen van alle verkopers jonger dan 30 jaar.
+statement_en: Return the names of all salesman younger than 30.
 answer: |-
   "SELECT {name} from {Salesman} where {age} < 30;"

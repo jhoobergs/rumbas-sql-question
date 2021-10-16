@@ -1,12 +1,7 @@
 ---
 type: template
 template: db2
-statement:
-  content:
-    nl: |-
-      Geef de leeftijden en salarissen van alle verkopers zonder eventuele dubbele records.
-    en: |-
-      Return the ages and salaries of all salesmen without potential duplicate records.
-  placeholders: {}
+statement_nl: Geef de leeftijden en salarissen van alle verkopers zonder eventuele dubbele records.
+statement_en: Return the ages and salaries of all salesmen without potential duplicate records.
 answer: |-
   "SELECT DISTINCT {age}, {salary} FROM {Salesman};"

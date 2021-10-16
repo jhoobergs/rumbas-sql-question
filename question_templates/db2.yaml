@@ -1,6 +1,5 @@
 ---
 type: normal
-statement: template:statement
 advice: ""
 parts:
   - type: extension
@@ -124,6 +123,11 @@ variables:
   correct:
     content: template:answer
     placeholders: *types
+statement:
+  content:
+    nl: template:statement_nl
+    en: template:statement_en
+  placeholders: *types
 variables_test:
   condition: ""
   max_runs: 100
