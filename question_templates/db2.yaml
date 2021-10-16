@@ -76,33 +76,52 @@ variables:
       INSERT INTO "{Order}" VALUES("Maasbrachtse Houthandel", "Jansen", 700, 150);
       INSERT INTO "{Order}" VALUES("Andersen Constructie", "Jansen", 800, 100);
       '
-    "{Salesman}":
-      nl: Verkoper
-      en: Salesman
-    "{Customer}":
-      nl: Klant
-      en: Customer
-    "{Order}":
-      nl: Bestelling
-      en: Order
-    "{name}":
-      nl: naam
-      en: name
-    "{age}":
-      nl: leeftijd
-      en: age
-    "{salary}":
-      nl: salaris
-      en: salary
-    "{place}":
-      nl: plaats
-      en: place
-    "{company_type}":
-      nl: bedrijfstype
-      en: company_type
-    "{amount}":
-      nl: aantal
-      en: amount
+    placeholders:
+      Salesman:
+        content:
+          nl: Verkoper
+          en: Salesman
+        placeholders: {}
+      Customer:
+        content:
+          nl: Klant
+          en: Customer
+        placeholders: {}
+      Order:
+        content:
+          nl: Bestelling
+          en: Order
+        placeholders: {}
+      name:
+        content:
+          nl: naam
+          en: name
+        placeholders: {}
+      age:
+        content:
+          nl: leeftijd
+          en: age
+        placeholders: {}
+      salary:
+        content:
+          nl: salaris
+          en: salary
+        placeholders: {}
+      place:
+        content:
+          nl: plaats
+          en: place
+        placeholders: {}
+      company_type:
+        content:
+          nl: bedrijfstype
+          en: company_type
+        placeholders: {}
+      amount:
+        content:
+          nl: aantal
+          en: amount
+        placeholders: {}
 variables_test:
   condition: ""
   max_runs: 100

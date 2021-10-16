@@ -6,12 +6,16 @@ locales:
   - name: en
     numbas_locale: en-GB
 name:
-  nl: Vraag voorbeeld
-  en: Question preview
+  content:
+    nl: Vraag voorbeeld
+    en: Question preview
+  placeholders: {}
 question_groups:
   - name:
-      nl: Q1
-      en: Q1
+      content:
+        nl: Q1
+        en: Q1
+      placeholders: {}
     picking_strategy: random_subset
     pick_questions: 1
     questions:

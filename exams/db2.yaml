@@ -6,12 +6,16 @@ locales:
   - name: en
     numbas_locale: en-GB
 name:
-  nl: SQL Oefenset 2
-  en: SQL Exercise set 2
+  content:
+    nl: SQL Oefenset 2
+    en: SQL Exercise set 2
+  placeholders: {}
 question_groups:
   - name:
-      nl: Q1
-      en: Q1
+      content:
+        nl: Q1
+        en: Q1
+      placeholders: {}
     picking_strategy: all_ordered
     questions:
       - db2_1
