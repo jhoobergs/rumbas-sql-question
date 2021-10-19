@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Geef het bedrijfstype en de leeftijd van de verkoper voor alle bestellingen van klanten buiten {City1}.
+statement_en: Return the company type and age of the salesman for all orders of customers outside {City1}.
+answer: |-
+  "SELECT c.{company_type}, s.{age} FROM {Salesman} s, {Customer} c, \"{Order}\" o where s.{name} = o.{Salesman}_{name} and c.{name} = o.{Customer}_{name} and c.{place} <> \"{City1}\""

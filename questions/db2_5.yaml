@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Geef de namen en het salaris van alle verkopers die geen order hebben van {CustomerName1} in volgorde van toenemend salaris. Gebruik een subquery.
+statement_en: Return the names and the salary of all salesman that don't have an order of {CustomerName1} in orde of increasing salary. Use a subquery.
+answer: |-
+  "SELECT v.{name}, v.{salary} from {Salesman} v where v.{name} NOT IN (SELECT {Salesman}_{name} from \"{Order}\" where {Customer}_{name} = \"{CustomerName1}\") order by v.{salary} ASC"

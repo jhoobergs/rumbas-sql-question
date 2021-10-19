@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Geef de namen van verkopers met twee of meer bestellingen
+statement_en: Return the names of the salesmen with two or more orders.
+answer: |-
+  "SELECT {Salesman}_{name} from \"{Order}\" group by {Salesman}_{name} HAVING count(*) > 2;"

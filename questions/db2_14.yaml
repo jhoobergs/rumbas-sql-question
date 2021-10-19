@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Geef met behulp van een subquery de leeftijden van de verkopers met een bestelling van een klant in {City1}, gesorteerd naar afnemende leeftijd.
+statement_en: Use a subquery to determine the ages of the salesmen with an order of a customer in {City1}, ordered by decreasing age.
+answer: |-
+  "SELECT {age} from {Salesman} where {name} in (SELECT b.{Salesman}_{name} from \"{Order}\" b, {Customer} k where b.{Customer}_{name} = k.{name} and k.{place} = \"{City1}\") ORDER BY {age} DESC"

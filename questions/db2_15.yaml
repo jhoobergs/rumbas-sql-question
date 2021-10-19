@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Geef met behulp van een join de namen en leeftijden van de verkopers met een bestelling van een klant in {City1}.
+statement_en: Use a join to determine the names and ages of the salesmen with an order of a customer in {City1}.
+answer: |-
+  "SELECT DISTINCT s.{name}, s.{age} from {Salesman} s, \"{Order}\" o, {Customer} c where o.{Customer}_{name} = c.{name} and s.{name} = o.{Salesman}_{name} and c.{place} = \"{City1}\""

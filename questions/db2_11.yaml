@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Bepaal het aantal bestellingen per verkoper als alleen bestellingen in aanmerking worden genomen die meer dan 500 bedragen. Enkel verkopers met meer dan één zulke bestelling worden getoond.
+statement_en: Determine the amount of orders for each salesman if only orders with an amount largre than 500 are counted. Only salesmen with more than one such order, are shown.
+answer: |-
+  "SELECT {Salesman}_{name}, count(*) FROM \"{Order}\" WHERE {amount}>500 GROUP BY {Salesman}_{name}"

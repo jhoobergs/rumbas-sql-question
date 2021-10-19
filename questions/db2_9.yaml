@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Geef de naam van de oudste verkoper. Gebruik een subquery.
+statement_en: Return the name of the oldest salesman. Use a subquery.
+answer: |-
+  "SELECT {name} from {Salesman} where {age} = (SELECT MAX({age}) from {Salesman});"

@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Bereken de gemiddelde leeftijd van de verkopers.
+statement_en: Calculate the average age of the salesmen.
+answer: |-
+  "SELECT AVG({age}) FROM {Salesman};"

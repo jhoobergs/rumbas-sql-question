@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Vind de verschillende klanten met bestellingen en geef de naam van de klant en het aantal bestellingen.
+statement_en: Determine the different customers with orders and show their name and amount of orders.
+answer: |-
+  "SELECT {Customer}_{name}, count(*) from \"{Order}\" group by {Customer}_{name};"

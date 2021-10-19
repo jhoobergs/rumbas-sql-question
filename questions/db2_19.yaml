@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Voeg een klant toe met {name} {NewCustomerName}, {place} {NewCustomerPlace} en {company_type} K. Selecteer nadien de rij van die klant uit de databank.
+statement_en: Add a customer with {name} {NewCustomerName}, {place} {NewCustomerPlace} and {company_type} K. Afterwards, select the row of that customer from the database.
+answer: |-
+  "INSERT INTO {Customer} VALUES(\"{NewCustomerName}\", \"{NewCustomerPlace}\", \"K\");SELECT * FROM {Customer} WHERE {name} = \"{NewCustomerName}\";"

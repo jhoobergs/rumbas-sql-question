@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Bepaal het aantal bestellingen per verkoper die minstens 1 bestelling heeft.
+statement_en: Determine the amount of orders for each salesman who has at least one order.
+answer: |-
+  "SELECT {Salesman}_{name}, count(*) FROM \"{Order}\" GROUP BY {Salesman}_{name}"

@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Geef met behulp van een join de namen en leeftijden van alle verkopers die een bestelling hebben van {CustomerName1}, gesorteerd naar toenemende leeftijd. 
+statement_en: Return, by using a join, the names and ages of all salesmen that have an order of {CustomerName1}, ordered by increasing age.
+answer: |-
+  "SELECT DISTINCT {name}, {age} FROM {Salesman} s INNER JOIN \"{Order}\" o ON s.{name} = o.{Salesman}_{name} WHERE o.{Customer}_{name} = \"{CustomerName1}\" ORDER BY {age} ASC"

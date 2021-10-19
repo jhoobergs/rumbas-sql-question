@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Geef de namen van alle verkopers die een bestelling hebben van {CustomerName1}.
+statement_en: Return the names of all salesman that have an order of {CustomerName1}.
+answer: |-
+  "SELECT DISTINCT v.{name} from {Salesman} v, \"{Order}\" b where v.{name} = b.{Salesman}_{name} and b.{Customer}_{name} = \"{CustomerName1}\";"

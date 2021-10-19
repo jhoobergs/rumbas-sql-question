@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Geef de namen en leeftijden van de verkopers die een bestelling hebben van {CustomerName1} (gebruik een subquery).
+statement_en: Return the names and ages of all salesmen that have an order of {CustomerName1}. Use a subquery.
+answer: |-
+  "SELECT {name}, {age} FROM Salesman where {name} in (SELECT {Salesman}_{name} from {Order} where {Customer}_{name} = \"{CustomerName1}\")"

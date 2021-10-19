@@ -60,19 +60,19 @@ variables:
       INSERT INTO "{Salesman}" VALUES("Abels2", 63, 120000);
       INSERT INTO "{Salesman}" VALUES("Abels3", 63, 121000);
 
-      INSERT INTO "{Customer}" VALUES("Andersen Constructie", "Leiderdam", "B");
+      INSERT INTO "{Customer}" VALUES("{CustomerName1}", "Leiderdam", "B");
       INSERT INTO "{Customer}" VALUES("Maasbrachtse Houthandel", "Maasbracht", "F");
-      INSERT INTO "{Customer}" VALUES("Verenigde Bouwbedrijven", "Rotterdam", "B");
-      INSERT INTO "{Customer}" VALUES("ABC-Stadsontwikkeling", "Rotterdam", "B");
+      INSERT INTO "{Customer}" VALUES("Verenigde Bouwbedrijven", "{City1}", "B");
+      INSERT INTO "{Customer}" VALUES("ABC-Stadsontwikkeling", "{City1}", "B");
 
-      INSERT INTO "{Order}" VALUES("Andersen Constructie", "Zwiers", 100, 560);
-      INSERT INTO "{Order}" VALUES("Andersen Constructie", "Jansen", 200, 1800);
+      INSERT INTO "{Order}" VALUES("{CustomerName1}", "Zwiers", 100, 560);
+      INSERT INTO "{Order}" VALUES("{CustomerName1}", "Jansen", 200, 1800);
       INSERT INTO "{Order}" VALUES("Maasbrachtse Houthandel", "Abels", 300, 480);
       INSERT INTO "{Order}" VALUES("Verenigde Bouwbedrijven", "Abels", 400, 2500);
-      INSERT INTO "{Order}" VALUES("Andersen Constructie", "Murphy", 500, 6000);
+      INSERT INTO "{Order}" VALUES("{CustomerName1}", "Murphy", 500, 6000);
       INSERT INTO "{Order}" VALUES("ABC-Stadsontwikkeling", "Abels", 600, 700);
       INSERT INTO "{Order}" VALUES("Maasbrachtse Houthandel", "Jansen", 700, 150);
-      INSERT INTO "{Order}" VALUES("Andersen Constructie", "Jansen", 800, 100);
+      INSERT INTO "{Order}" VALUES("{CustomerName1}", "Jansen", 800, 100);
       '
     placeholders: &types
       Salesman:
@@ -119,6 +119,26 @@ variables:
         content:
           nl: aantal
           en: amount
+        placeholders: {}
+      CustomerName1:
+        content:
+          nl: Andersen Constructie
+          en: Andersen Construction
+        placeholders: {}
+      City1:
+        content:
+          nl: Rotterdam
+          en: London
+        placeholders: {}
+      NewCustomerName:
+        content:
+          nl: Pieter's bouwbedrijf
+          en: Pete's building company
+        placeholders: {}
+      NewCustomerPlace:
+        content:
+          nl: Amsterdam
+          en: Newcastle
         placeholders: {}
   correct:
     content: template:answer

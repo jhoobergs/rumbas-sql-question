@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Bepaal het aantal bestellingen
+statement_en: Determine the amount of orders
+answer: |-
+  "SELECT count(*) FROM \"{Order}\";"
