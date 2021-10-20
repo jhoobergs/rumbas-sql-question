@@ -1,0 +1,7 @@
+---
+type: template
+template: db1
+statement_nl: Geef van alle onderdelen het id en het gewicht in gram (in een kolom genaamd {Weight_in_Grams}).
+statement_en: Return the id and the weight in grams (in a column named {Weight_in_Grams}) for all parts.
+answer: |-
+  'SELECT id, {weight} * 454 as {Weight_in_Grams} FROM {Part};'

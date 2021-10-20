@@ -1,0 +1,7 @@
+---
+type: template
+template: db1
+statement_nl: Geef de id's van onderdelen die meer dan 1 keer geleverd zijn.
+statement_en: Get the ids for all parts supplied more than 1 time.
+answer: |-
+  'SELECT {Part}_id FROM {Shipment} GROUP BY {Part}_id HAVING COUNT(*) > 1;'

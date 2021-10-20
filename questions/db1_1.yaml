@@ -1,0 +1,7 @@
+---
+type: template
+template: db1
+statement_nl: Geef het id en de status voor alle leveranciers in Parijs.
+statement_en: Return the id and status for all suppliers in Paris.
+answer: |-
+  'SELECT id, status from {Supplier} WHERE {city} = "{Paris}";'

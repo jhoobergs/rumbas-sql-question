@@ -1,0 +1,7 @@
+---
+type: template
+template: db1
+statement_nl: Geef de id's en statussen van leveranciers in Parijs volgens dalende status.
+statement_en: Return the supplier numbers and status for suppliers in Paris in descending status order.
+answer: |-
+  'SELECT id, status FROM {Supplier} where {city} = "{Paris}" ORDER BY status DESC;'

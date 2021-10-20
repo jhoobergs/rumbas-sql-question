@@ -1,0 +1,7 @@
+---
+type: template
+template: db1
+statement_nl: Geef de verschillende id's van alle geleverde onderdelen.
+statement_en: Return the distinct ids of all shipped parts.
+answer: |-
+  'SELECT DISTINCT {Part}_id from {Shipment};'

@@ -1,0 +1,7 @@
+---
+type: template
+template: db1
+statement_nl: Geef de id's van alle geleverde onderdelen.
+statement_en: Return the ids of all shipped parts.
+answer: |-
+  'SELECT {Part}_id from {Shipment};'

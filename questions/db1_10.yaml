@@ -1,0 +1,7 @@
+---
+type: template
+template: db1
+statement_nl: Geef het aantal leveringen voor onderdeel 2 in een kolom genaamd {Amount}.
+statement_en: Return the number of shipments for part 2 in a column named {Amount}.
+answer: |-
+  'SELECT count(*) as {Amount} from {Shipment} where {Part}_id = 2;'

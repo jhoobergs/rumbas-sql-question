@@ -1,0 +1,252 @@
+---
+type: normal
+advice: ""
+parts:
+  - type: extension
+    marks: 1
+    prompt: |-
+      {sql_editor}
+    use_custom_name: false
+    custom_name: ""
+    steps_penalty: 0
+    enable_minimum_marks: true
+    minimum_marks: 0
+    show_correct_answer: false
+    show_feedback_icon: true
+    variable_replacement_strategy: original_first
+    adaptive_marking_penalty: 0
+    custom_marking_algorithm_notes: &notes
+      - name: mark
+        description: none
+        expression: "correctif(check_resultset(sql_editor))"
+      - name: interpreted_answer
+        description: none
+        expression: current_query(sql_editor)
+    extend_base_marking_algorithm: true
+    steps: []
+variables:
+  sql_editor: &editor sqlite_editor(setup, correct)
+  setup:
+    content: |-
+      '
+        CREATE TABLE {Supplier} (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        {name} VARCHAR(20),
+        status INTEGER,
+        {city} VARCHAR(20)
+        );
+        CREATE TABLE {Part} (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        {name} VARCHAR(20),
+        {color} VARCHAR(10),
+        {weight} INTEGER,
+        {city} VARCHAR(20)
+        );
+        CREATE TABLE {Shipment} (
+        {Supplier}_id INTEGER,
+        {Part}_id INTEGER,
+        {quantity} INTEGER,
+        PRIMARY KEY ({Supplier}_id,{Part}_id),
+        FOREIGN KEY ({Supplier}_id) REFERENCES {Supplier}(id),
+        FOREIGN KEY ({Part}_id) REFERENCES {Part}(id)
+        );
+
+        INSERT INTO {Supplier} VALUES(NULL, "Smith", 20, "{London}");
+        INSERT INTO {Supplier} VALUES(NULL, "Jones", 10, "{Paris}");
+        INSERT INTO {Supplier} VALUES(NULL, "Blakes", 30, "{Paris}");
+        INSERT INTO {Supplier} VALUES(NULL, "Clark", 20, "{London}");
+        INSERT INTO {Supplier} VALUES(NULL, "Adams", 30, "{Athens}");
+        INSERT INTO {Supplier} VALUES(NULL, "Oh", NULL, "{Seattle}");
+        INSERT INTO {Supplier} VALUES(NULL, "Fidel", NULL, "{Seattle}");
+        INSERT INTO {Supplier} VALUES(NULL, "Carlyle", NULL, "{Seattle}");
+
+        INSERT INTO {Part} VALUES(NULL, "{Nut}", "{Red}", 12, "{London}");
+        INSERT INTO {Part} VALUES(NULL, "{Bolt}", "{Green}", 17, "{Paris}");
+        INSERT INTO {Part} VALUES(NULL, "{Screw}", "{Blue}", 17, "{Rome}");
+        INSERT INTO {Part} VALUES(NULL, "{Screw}", "{Red}", 14, "{London}");
+        INSERT INTO {Part} VALUES(NULL, "{Cam}", "{Blue}", 12, "{Paris}");
+        INSERT INTO {Part} VALUES(NULL, "{Cog}", "{Red}", 19, "{London}");
+
+        INSERT INTO {Shipment} VALUES(1, 1, 300);
+        INSERT INTO {Shipment} VALUES(1, 2, 200);
+        INSERT INTO {Shipment} VALUES(1, 3, 400);
+        INSERT INTO {Shipment} VALUES(1, 4, 200);
+        INSERT INTO {Shipment} VALUES(1, 5, 100);
+        INSERT INTO {Shipment} VALUES(1, 6, 100);
+        INSERT INTO {Shipment} VALUES(2, 1, 300);
+        INSERT INTO {Shipment} VALUES(2, 2, 400);
+        INSERT INTO {Shipment} VALUES(3, 2, 200);
+        INSERT INTO {Shipment} VALUES(4, 2, 200);
+        INSERT INTO {Shipment} VALUES(4, 4, 300);
+        INSERT INTO {Shipment} VALUES(4, 5, 400);
+      '
+    placeholders: &types
+      Supplier:
+        content:
+          nl: Leverancier
+          en: Supplier
+        placeholders: {}
+      Part:
+        content:
+          nl: Onderdeel
+          en: Part
+        placeholders: {}
+      Shipment:
+        content:
+          nl: Levering
+          en: Shipment
+        placeholders: {}
+      name:
+        content:
+          nl: naam
+          en: name
+        placeholders: {}
+      city:
+        content:
+          nl: stad
+          en: city
+        placeholders: {}
+      color:
+        content:
+          nl: kleur
+          en: color
+        placeholders: {}
+      weight:
+        content:
+          nl: gewicht
+          en: weight
+        placeholders: {}
+      quantity:
+        content:
+          nl: aantal
+          en: quantity
+        placeholders: {}
+      CustomerName1:
+        content:
+          nl: Andersen Constructie
+          en: Andersen Construction
+        placeholders: {}
+      Paris:
+        content:
+          nl: Parijs
+          en: Paris
+        placeholders: {}
+      London:
+        content:
+          nl: Londen
+          en: London
+        placeholders: {}
+      Athens:
+        content:
+          nl: Athene
+          en: Athens
+        placeholders: {}
+      Seattle:
+        content:
+          nl: Seattle
+          en: Seattle
+        placeholders: {}
+      Rome:
+        content:
+          nl: Rome
+          en: Rome
+        placeholders: {}
+      Red:
+        content:
+          nl: Rood
+          en: Red
+        placeholders: {}
+      Green:
+        content:
+          nl: Groen
+          en: Green
+        placeholders: {}
+      Blue:
+        content:
+          nl: Blauw
+          en: Blue
+        placeholders: {}
+      Nut:
+        content:
+          nl: Moer
+          en: Nut
+        placeholders: {}
+      Bolt:
+        content:
+          nl: Bout
+          en: Bolt
+        placeholders: {}
+      Screw:
+        content:
+          nl: Schroef
+          en: Screw
+        placeholders: {}
+      Cam:
+        content:
+          nl: Nokkenas
+          en: Cam
+        placeholders: {}
+      Cog:
+        content:
+          nl: Tandwiel
+          en: Cog
+        placeholders: {}
+      Weight_in_Grams:
+        content:
+          nl: gewicht_in_gram
+          en: weight_in_grams
+        placeholders: {}
+      Total:
+        content:
+          nl: totaal
+          en: total
+        placeholders: {}
+      Amount:
+        content:
+          nl: aantal
+          en: amount
+        placeholders: {}
+  correct:
+    content: template:answer
+    placeholders: *types
+statement:
+  content:
+    nl: template:statement_nl
+    en: template:statement_en
+  placeholders: *types
+variables_test:
+  condition: ""
+  max_runs: 100
+functions: {}
+preamble:
+  js: ""
+  css: ""
+navigation:
+  can_regenerate: false
+  show_title_page: false
+  confirm_when_leaving: false
+extensions:
+  chemistry: false
+  download_text_file: false
+  eukleides: false
+  geogebra: false
+  graphs: false
+  jsx_graph: false
+  linear_algebra: false
+  linear_codes: false
+  optimisation: false
+  permutations: false
+  polynomials: false
+  quantities: false
+  random_person: false
+  stats: false
+  written_number: false
+  sqlite: true
+diagnostic_topic_names: []
+resources: []
+custom_part_types: []
+builtin_constants:
+  e: true
+  pi: true
+  i: true
+custom_constants: []

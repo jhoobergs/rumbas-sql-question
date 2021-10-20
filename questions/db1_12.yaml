@@ -1,0 +1,7 @@
+---
+type: template
+template: db1
+statement_nl: Geef voor elk geleverd onderdeel het id en het totaal aantal dat ervan geleverd is in een kolom genaamd {Total}.
+statement_en: For each part supplied, get the id and the total shipment quantity for that part in a colomn named {Total}.
+answer: |-
+  'SELECT {Part}_id, sum({quantity}) as {Total} from {Shipment} GROUP BY {Part}_id;'

@@ -1,0 +1,7 @@
+---
+type: template
+template: db1
+statement_nl: Geef de id's van alle leveranciers in Parijs met status groter dan 20.
+statement_en: Return the id's of all suppliers in Paris with a status larger than 20.
+answer: |-
+  'SELECT id from {Supplier} where status > 20 and {city} = "{Paris}";'
