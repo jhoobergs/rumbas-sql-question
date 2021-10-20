@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Wijzig het {salary} van verkoper {SalesmanName1} naar 45000. Selecteer nadien alle verkopers.
+statement_en: Change the {salary} of salesman {SalesmanName1} to 45000. Afterwards, select all salesman.
+answer: |-
+  'UPDATE {Salesman} SET {salary} = 45000 where {name} = "{SalesmanName1}";SELECT * FROM {Salesman};'

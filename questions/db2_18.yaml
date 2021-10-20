@@ -1,7 +1,7 @@
 ---
 type: template
 template: db2
-statement_nl: Geef de namen en leeftijden van verkopers met twee of meer bestellingen
+statement_nl: Geef de namen en leeftijden van verkopers met twee of meer bestellingen.
 statement_en: Return the names and ages of the salesmen with two or more orders.
 answer: |-
   "SELECT s.{name}, s.{age} from {Salesman} s, \"{Order}\" o where s.{name} = o.{Salesman}_{name} group by s.{name} HAVING count(*) > 2;"

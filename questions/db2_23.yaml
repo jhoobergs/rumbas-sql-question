@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Verhoog het {salary} van alle verkopers met 10%. Selecteer nadien alle verkopers.
+statement_en: Increase the {salary} of all salesmen with 10%. Afterwards, select all salesman.
+answer: |-
+  'UPDATE {Salesman} SET {salary} = {salary} * 1.1;SELECT * FROM {Salesman};'

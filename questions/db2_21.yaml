@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Verwijder de klant {CustomerName1}. Selecteer nadien alle klanten.
+statement_en: Delete the customer {CustomerName1}. Afterwards, select alle customers.
+answer: |-
+  "DELETE FROM {Order} WHERE {Customer}_{name} = \"{CustomerName1}\";DELETE FROM {Customer} WHERE {name}=\"{CustomerName1}\";SELECT * FROM {Customer};"

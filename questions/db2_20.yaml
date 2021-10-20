@@ -1,0 +1,7 @@
+---
+type: template
+template: db2
+statement_nl: Voeg een verkoper toe met {name} {NewSalesmanName}, {age} 36. Het {salary} is nog niet vastgelegd. Selecteer nadien de rij van die verkoper uit de databank.
+statement_en: Add a salesman with {name} {NewSalesmanName}, {age} 36. The {salary} is not yet known. Afterwards, select the row of that salesman from the database.
+answer: |-
+  "INSERT INTO {Salesman} VALUES(\"{NewSalesmanName}\", 36, NULL);SELECT * FROM {Salesman} WHERE {name} = \"{NewSalesmanName}\";"
