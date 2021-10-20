@@ -1,7 +1,7 @@
 ---
 type: template
 template: db2
-statement_nl: Bepaal het aantal bestellingen per verkoper die minstens 1 bestelling heeft.
-statement_en: Determine the amount of orders for each salesman who has at least one order.
+statement_nl: Bepaal het aantal bestellingen per verkoper die minstens 1 bestelling heeft. We zoeken dus een tabel met kolommen {Salesman}_{name} en {amount}.
+statement_en: Determine the amount of orders for each salesman who has at least one order. We want a tabel with columns {Salesman}_{name} and {amount}.
 answer: |-
-  "SELECT {Salesman}_{name}, count(*) FROM \"{Order}\" GROUP BY {Salesman}_{name}"
+  "SELECT {Salesman}_{name}, count(*) as {amount} FROM \"{Order}\" GROUP BY {Salesman}_{name}"

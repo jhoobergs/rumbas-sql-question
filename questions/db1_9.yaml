@@ -1,7 +1,7 @@
 ---
 type: template
 template: db1
-statement_nl: Geef het totaal aantal leveranciers.
-statement_en: Return the total number of suppliers.
+statement_nl: Geef het totaal aantal leveranciers in een kolom genaamd {Amount}.
+statement_en: Return the total number of suppliers in a column named {Amount}.
 answer: |-
-  'SELECT count(*) from {Supplier};'
+  'SELECT count(*) as {Amount} from {Supplier};'

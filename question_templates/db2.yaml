@@ -150,6 +150,11 @@ variables:
           nl: Jef
           en: John
         placeholders: {}
+      average:
+        content:
+          nl: gemiddelde
+          en: average
+        placeholders: {}
   correct:
     content: template:answer
     placeholders: *types

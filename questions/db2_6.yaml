@@ -1,7 +1,7 @@
 ---
 type: template
 template: db2
-statement_nl: Bepaal het aantal bestellingen
-statement_en: Determine the amount of orders
+statement_nl: Bepaal het aantal bestellingen in een kolom {amount}.
+statement_en: Determine the amount of orders in a column {amount}.
 answer: |-
-  "SELECT count(*) FROM \"{Order}\";"
+  "SELECT count(*) as {amount} FROM \"{Order}\";"

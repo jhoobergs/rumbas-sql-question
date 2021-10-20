@@ -1,7 +1,7 @@
 ---
 type: template
 template: db2
-statement_nl: Vind de verschillende klanten met bestellingen en geef de naam van de klant en het aantal bestellingen.
-statement_en: Determine the different customers with orders and show their name and amount of orders.
+statement_nl: Vind de verschillende klanten met bestellingen en geef de naam van de klant en het aantal bestellingen. We zoeken dus een tabel met kolommen {Customer}_{name} en {amount}.
+statement_en: Determine the different customers with orders and show their name and amount of orders. We want a tabel with columns {Customer}_{name} and {amount}.
 answer: |-
-  "SELECT {Customer}_{name}, count(*) from \"{Order}\" group by {Customer}_{name};"
+  "SELECT {Customer}_{name}, count(*) as {amount} from \"{Order}\" group by {Customer}_{name};"
