@@ -25,7 +25,7 @@ parts:
     extend_base_marking_algorithm: true
     steps: []
 variables:
-  sql_editor: &editor sqlite_editor(setup, correct)
+  sql_editor: &editor sqlite_editor(setup, correct, true)
   setup:
     content: |-
       '
