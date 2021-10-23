@@ -1,7 +1,7 @@
 ---
 type: template
 template: db1
-statement_nl: Haal alle details op van alle leveranciers.
-statement_en: Get full details of all suppliers.
+statement_nl: Haal alle gegevens op van alle leveranciers.
+statement_en: Get all data of all suppliers.
 answer: |-
   'SELECT * from {Supplier};'
