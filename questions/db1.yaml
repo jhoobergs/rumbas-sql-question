@@ -242,6 +242,7 @@ extensions:
   stats: false
   written_number: false
   sqlite: true
+  text: false
 diagnostic_topic_names: []
 resources: []
 custom_part_types: []
@@ -250,3 +251,4 @@ builtin_constants:
   pi: true
   i: true
 custom_constants: []
+rulesets: {}
